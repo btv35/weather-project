@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="SheCodes Plus/src/wireframe_style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <form>
+            <input
+              placeholder="Type a city..."
+              type="search"
+              size="50"
+              class="searchField"
+              autofocus="on"
+              id="search-text-input"
+            />
+            <button type="button" class="btn btn-primary" id="searchButton">
+              Search
+            </button>
+            <button type="button" class="btn btn-success" id="currentButton">
+              Current
+            </button>
+          </form>
+        </div>
+        <h1 id="city"></h1>
+        <h4 id="date"></h4>
+        <h3 id="description"></h3>
+        <h2 id="temperature">
+          <!-- <span id="temp"> 50 </span>
+        <a href="#" id="celsius-link"> ℃ </a>
+        |
+        <a href="#" id="farenheit-link"> ℉ </a> -->
+        </h2>
+        <div class="row weatherBorder" id="weather-border">
+          <div class="col">
+            Now
+            <br />
+            ☁️
+            <br />
+            31°
+          </div>
+          <div class="col">
+            13:00
+            <br />
+            ☀️
+            <br />
+            31°
+          </div>
+          <div class="col">
+            15:00
+            <br />
+            🌥️
+            <br />
+            31°
+          </div>
+          <div class="col">
+            17:00
+            <br />
+            🌥️
+            <br />
+            31°
+          </div>
+          <div class="col">
+            19:00
+            <br />
+            🌥️
+            <br />
+            30°
+          </div>
+          <div class="col">
+            20:06
+            <br />
+            🌇
+            <br />
+            29°
+          </div>
+          <div class="col">
+            22:00
+            <br />
+            🌙
+            <br />
+            26°
+          </div>
+          <div class="col">
+            00:00
+            <br />
+            🌙
+            <br />
+            24°
+          </div>
+          <div class="col">
+            02:00
+            <br />
+            🌙
+            <br />
+            21°
+          </div>
+          <div class="col">
+            04:00
+            <br />
+            🌙
+            <br />
+            21°
+          </div>
+          <div class="col">
+            05:56
+            <br />
+            🌅
+            <br />
+            21°
+          </div>
+          <div class="col">
+            06:00
+            <br />
+            🌥️
+            <br />
+            21°
+          </div>
+          <div class="col">
+            08:00
+            <br />
+            ☀️
+            <br />
+            21°
+          </div>
+          <div class="col">
+            10:00
+            <br />
+            ☀️
+            <br />
+            23°
+          </div>
+          <div class="col">
+            12:00
+            <br />
+            ☀️
+            <br />
+            25°
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 columnDays">
+            <div class="weatherDay">Today ⛈️ Storm 32°/ 20°</div>
+            <div class="weatherDay">Tomorrow ☀️ Sunny 27°/ 15°</div>
+            <div class="weatherDay">Wednesday ☀️ Sunny 28° / 15°</div>
+          </div>
+          <div class="col-6 columnDays">
+            <div class="weatherDay">Thursday ⛅ Partly cloudy 27° / 16°</div>
+            <div class="weatherDay">Friday ⛅ Partly cloudy 28° / 19°</div>
+            <div class="weatherDay">Saturday ⛅ Partly cloudy 29° / 19°</div>
+            <div class="weatherDay">Sunday ⛈️ Storm 31° / 18°</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      //====================  change name of the city ======================
+      function showCity(event) {
+        event.preventDefault();
+        let city = document.querySelector("#search-text-input").value;
+        let apiKey = "9496e550c50357215588180769f9651c";
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        axios.get(apiUrl).then(showMeasurement);
+      }
+
+      function showMeasurement(response) {
+        let temperature = Math.round(response.data.main.temp);
+        let h2 = document.querySelector("#temperature");
+        h2.innerHTML = `${temperature} ℃`;
+        let h3 = document.querySelector("#description");
+        h3.innerHTML = response.data.weather[0].description;
+        let searchInput = document.querySelector("#search-text-input").value;
+        let h1 = document.querySelector("h1");
+        h1.innerHTML = searchInput;
+      }
+
+      let searchButton = document.querySelector("#searchButton");
+      searchButton.addEventListener("click", showCity);
+
+      //======================= Current Button ===================
+      
+      function cityTempDescr(response) {
+        let temperature = Math.round(response.data.main.temp);
+        let h2 = document.querySelector("h2");
+        h2.innerHTML = `${temperature} ℃`;
+        let h3 = document.querySelector("h3");
+        h3.innerHTML = response.data.weather[0].description;
+        let h1 = document.querySelector("h1");
+        h1.innerHTML = response.data.name;
+      }
+
+      function showPosition(position) {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+        let apiKey = "9496e550c50357215588180769f9651c";
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+        axios.get(apiUrl).then(cityTempDescr);
+      }
+      function getCurrentPosition(event) {
+        event.preventDefault();
+        navigator.geolocation.getCurrentPosition(showPosition);
+      }
+
+      let currentButton = document.querySelector("#currentButton");
+      currentButton.addEventListener("click", getCurrentPosition);
+
+      //======================== display current time ===================
+      function formattedDate(date) {
+        let days = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        let day = days[date.getDay()];
+        let hour = date.getHours();
+        if (hour < 10) {
+          hour = `0${hour}`;
+        }
+        let min = date.getMinutes();
+        if (min < 10) {
+          min = `0${min}`;
+        }
+        return `${day} ${hour}:${min}`;
+      }
+
+      let dateElement = document.querySelector("#date");
+      let currentTime = new Date();
+      dateElement.innerHTML = formattedDate(currentTime);
+
+      //==================== convert to celsius ===================
+      // function changeToCelcius(event) {
+      //   event.preventDefault();
+      //   let tempElement = document.querySelector("#temp");
+      //   tempElement.innerHTML = 50;
+      // }
+      //==================== перевод в фаренгейты =================
+      // function changeToFarenheit(event) {
+      //   event.preventDefault();
+      //   let tempElement = document.querySelector("#temp");
+      //   tempElement.innerHTML = 10;
+      // }
+      //======================================================================
+      // let farenheit = document.querySelector("#farenheit-link");
+      // farenheit.addEventListener("click", changeToFarenheit);
+
+      // let celsius = document.querySelector("#celsius-link");
+      // celsius.addEventListener("click", changeToCelcius);
+    </script>
+  </body>
+</html>
