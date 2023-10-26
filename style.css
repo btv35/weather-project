@@ -1,10 +1,18 @@
 body {
-  color: #1d7b92;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(123, 112, 112);
+  display: block;
 }
-button {
-  border: 1px solid black;
-  border-radius: 4px;
+.container {
+  border: 1px solid rgb(196, 188, 188);
+  border-radius: 6px;
+  width: 53%;
+  margin: 20px 24px;
+  box-shadow: 3px 4px 17px rgba(0, 0, 0, 0.1);
+}
+footer {
+  text-align: left;
+  margin-left: 25px;
 }
 .weatherDay {
   padding: 10px;
@@ -16,24 +24,29 @@ button {
   margin: 6px;
 }
 #weather-border {
-  border: 1px solid black;
-  padding: 10px 0;
+  border: 1px solid rgb(196, 188, 188);
+  padding: 5px;
   border-radius: 4px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 #search-text-input {
   margin: 20px 0;
-  box-shadow: 6px 10px 17px 1px rgba(0, 0, 0, 0.1);
-  border: 1px solid;
+  border: 1px solid rgb(196, 188, 188);
   border-radius: 6px;
   line-height: 2.2;
 }
 #temperature {
-  font-size: 47px;
+  font-size: 40px;
+  color: black;
 }
 #description {
   margin-bottom: 20px;
-  font-size: 21px;
+  font-size: 20px;
 }
 #date {
-  font-size: 21px;
+  font-size: 20px;
+}
+#city {
+  font-size: 35px;
 }

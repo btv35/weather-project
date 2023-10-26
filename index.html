@@ -15,157 +15,108 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col">
-          <form>
-            <input
-              placeholder="Type a city..."
-              type="search"
-              size="50"
-              class="searchField"
-              autofocus="on"
-              id="search-text-input"
-            />
-            <button type="button" class="btn btn-primary" id="searchButton">
-              Search
-            </button>
-            <button type="button" class="btn btn-success" id="currentButton">
-              Current
-            </button>
-          </form>
-        </div>
-        <h1 id="city"></h1>
-        <h4 id="date"></h4>
-        <h3 id="description"></h3>
-        <h2 id="temperature">
-          <!-- <span id="temp"> 50 </span>
+      <div class="col">
+        <form>
+          <input
+            placeholder="Type a city..."
+            type="search"
+            size="50"
+            class="searchField"
+            autofocus="on"
+            id="search-text-input"
+          />
+          <button type="button" class="btn btn-primary" id="searchButton">
+            Search
+          </button>
+          <button type="button" class="btn btn-success" id="currentButton">
+            Current location
+          </button>
+        </form>
+      </div>
+      <h1 id="city"></h1>
+      <h4 id="date"></h4>
+      <h3 id="description"></h3>
+      <h2 id="temperature">
+        <!-- <span id="temp"> 50 </span>
         <a href="#" id="celsius-link"> ℃ </a>
         |
         <a href="#" id="farenheit-link"> ℉ </a> -->
-        </h2>
-        <div class="row weatherBorder" id="weather-border">
-          <div class="col">
-            Now
-            <br />
-            ☁️
-            <br />
-            31°
-          </div>
-          <div class="col">
-            13:00
-            <br />
-            ☀️
-            <br />
-            31°
-          </div>
-          <div class="col">
-            15:00
-            <br />
-            🌥️
-            <br />
-            31°
-          </div>
-          <div class="col">
-            17:00
-            <br />
-            🌥️
-            <br />
-            31°
-          </div>
-          <div class="col">
-            19:00
-            <br />
-            🌥️
-            <br />
-            30°
-          </div>
-          <div class="col">
-            20:06
-            <br />
-            🌇
-            <br />
-            29°
-          </div>
-          <div class="col">
-            22:00
-            <br />
-            🌙
-            <br />
-            26°
-          </div>
-          <div class="col">
-            00:00
-            <br />
-            🌙
-            <br />
-            24°
-          </div>
-          <div class="col">
-            02:00
-            <br />
-            🌙
-            <br />
-            21°
-          </div>
-          <div class="col">
-            04:00
-            <br />
-            🌙
-            <br />
-            21°
-          </div>
-          <div class="col">
-            05:56
-            <br />
-            🌅
-            <br />
-            21°
-          </div>
-          <div class="col">
-            06:00
-            <br />
-            🌥️
-            <br />
-            21°
-          </div>
-          <div class="col">
-            08:00
-            <br />
-            ☀️
-            <br />
-            21°
-          </div>
-          <div class="col">
-            10:00
-            <br />
-            ☀️
-            <br />
-            23°
-          </div>
-          <div class="col">
-            12:00
-            <br />
-            ☀️
-            <br />
-            25°
-          </div>
-        </div>
+      </h2>
 
-        <div class="row">
-          <div class="col-6 columnDays">
-            <div class="weatherDay">Today ⛈️ Storm 32°/ 20°</div>
-            <div class="weatherDay">Tomorrow ☀️ Sunny 27°/ 15°</div>
-            <div class="weatherDay">Wednesday ☀️ Sunny 28° / 15°</div>
-          </div>
-          <div class="col-6 columnDays">
-            <div class="weatherDay">Thursday ⛅ Partly cloudy 27° / 16°</div>
-            <div class="weatherDay">Friday ⛅ Partly cloudy 28° / 19°</div>
-            <div class="weatherDay">Saturday ⛅ Partly cloudy 29° / 19°</div>
-            <div class="weatherDay">Sunday ⛈️ Storm 31° / 18°</div>
-          </div>
+      <div class="row" id="weather-border">
+        <div class="col">
+          Now
+          <br />
+          ☁️
+          <br />
+          11°
+        </div>
+        <div class="col">
+          15:00
+          <br />
+          🌥️
+          <br />
+          12°
+        </div>
+        <div class="col">
+          19:00
+          <br />
+          🌥️
+          <br />
+          10°
+        </div>
+        <div class="col">
+          22:00
+          <br />
+          🌙
+          <br />
+          9°
+        </div>
+        <div class="col">
+          02:00
+          <br />
+          🌙
+          <br />
+          7°
+        </div>
+        <div class="col">
+          06:00
+          <br />
+          🌥️
+          <br />
+          5°
+        </div>
+        <div class="col">
+          10:00
+          <br />
+          ☀️
+          <br />
+          10°
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col columnDays">
+          <div class="weatherDay">Today ⛅ Partly cloudy 11°/ 10°</div>
+          <div class="weatherDay">Tomorrow ☀️ Sunny 12°/ 9°</div>
+          <div class="weatherDay">Wednesday ☀️ Sunny 12° / 9°</div>
+        </div>
+        <div class="col columnDays">
+          <div class="weatherDay">Thursday ⛅ Partly cloudy 17° / 10°</div>
+          <div class="weatherDay">Friday ⛅ Partly cloudy 8° / 5°</div>
+          <div class="weatherDay">Saturday ⛅ Partly cloudy 9° / 5°</div>
+          <div class="weatherDay">Sunday ⛈️ Storm 11° / 8°</div>
         </div>
       </div>
     </div>
+
+    <footer>
+      <div>
+        <a href="https://github.com/btv35/weather-project">Open-source code,</a>
+        by Tanya B
+      </div>
+    </footer>
+
     <script>
       //====================  change name of the city ======================
       function showCity(event) {
@@ -191,7 +142,7 @@
       searchButton.addEventListener("click", showCity);
 
       //======================= Current Button ===================
-      
+
       function cityTempDescr(response) {
         let temperature = Math.round(response.data.main.temp);
         let h2 = document.querySelector("h2");
